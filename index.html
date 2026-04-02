@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ábrelas cuando...</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-container">
+        <h1>Ábrelas cuando...</h1>
+
+        <div class="contenedor-sobres">
+            <div class="sobre" data-tipo="disponible" data-mensaje="1">
+                <img src="https://alemf.com/wp-content/uploads/2026/02/s.png" alt="Sobre" class="sobre-imagen">
+                <p class="sobre-titulo">Estés triste</p>
+            </div>
+
+            <div class="sobre" data-tipo="disponible" data-mensaje="2">
+                <img src="https://alemf.com/wp-content/uploads/2026/02/s2-1.png" alt="Sobre" class="sobre-imagen">
+                <p class="sobre-titulo">Tengas un mal día</p>
+            </div>
+
+            <div class="sobre" data-tipo="fecha" data-fecha="2026-06-12" data-mensaje="3">
+                <img src="https://alemf.com/wp-content/uploads/2026/02/s1.png" alt="Sobre" class="sobre-imagen">
+                <p class="sobre-titulo">Sea nuestro aniversario</p>
+            </div>
+
+            <div class="sobre" data-tipo="fecha" data-fecha="2026-07-06" data-mensaje="4">
+                <img src="https://alemf.com/wp-content/uploads/2026/02/s1.png" alt="Sobre" class="sobre-imagen">
+                <p class="sobre-titulo">Sea tu cumple</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-mensaje" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar">&times;</span>
+            <p id="texto-mensaje"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
