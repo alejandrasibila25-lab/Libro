@@ -1,219 +1,58 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Courier New', Courier, monospace; /* O una fuente pixel descargada */
-    color: white;
-}
-.background-container {
-    background: url("Screenshot_20260402-161129.ChatGPT.png") no-repeat center center;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
-
-    /* Oscurece un poco para que el texto se vea mejor */
-    background-color: rgba(0,0,0,0.4);
-    background-blend-mode: darken;
-}
-.
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
-h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px #000;
-    margin-bottom: 40px;
+.card {
+  background-color: #ff66b2;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s;
 }
 
-.contenedor-sobres {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-    width: 80%;
-    max-width: 900px;
+.card:hover {
+  transform: scale(1.05);
 }
 
-.sobre {
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s;
+.card emoji {
+  font-size: 50px;
 }
 
-.sobre:hover {
-    transform: scale(1.1);
-}
-
-.sobre-imagen {
-    width: 100px;
-    image-rendering: pixelated; /* Mantiene el estilo pixel art nítido */
-}
-
-.sobre-titulo {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    text-shadow: 1px 1px #000;
-}
-
-/* Estilos básicos del Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
 }
 
-.modal-contenido {
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 15% auto;
-    padding: 20px;
-    border: 4px solid #000;
-    width: 300px;
-    text-align: center;
-    position: relative;
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
 
-.cerrar {
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    cursor: pointer;
-    font-weight: bold;
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carpetitas "Ábrelo Cuando"</title>
-    <style>
-        /* Estilos generales y fondo */
-        body {
-            background-color: #fdf2f6; /* Rosa muy suave */
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 40px 20px;
-        }
 
-        /* Contenedor de la cuadrícula */
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            width: 100%;
-        }
-
-        /* Diseño de cada carpetita */
-        .folder {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            /* El borde superior simula la solapa de una carpeta/sobre */
-            border-top: 10px solid #f8bbd0; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        /* Efecto al pasar el mouse */
-        .folder:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-            border-top-color: #f48fb1;
-        }
-
-        /* Tamaño de los emojis */
-        .emoji {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .folder:hover .emoji {
-            transform: scale(1.1);
-        }
-
-        /* Estilo del texto */
-        .title {
-            color: #5d4037;
-            font-weight: 600;
-            font-size: 1.1rem;
-            line-height: 1.4;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="grid-container">
-        
-        <div class="folder">
-            <div class="emoji">🌙</div>
-            <div class="title">Cuando la noche<br>pese demasiado</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">💞</div>
-            <div class="title">Cuando<br>me extrañes</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">💗</div>
-            <div class="title">Cuando no<br>puedas dormir</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">🫀</div>
-            <div class="title">Cuando sientas que<br>te falta algo</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">💌</div>
-            <div class="title">Cuando necesites<br>volver a mí</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">🎶</div>
-            <div class="title">Cuando una canción<br>te rompa</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">📩</div>
-            <div class="title">Cuando quieras<br>leerme como carta</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">✨</div>
-            <div class="title">Cuando<br>necesites luz</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">💭</div>
-            <div class="title">Cuando tu mente<br>no pare</div>
-        </div>
-
-        <div class="folder">
-            <div class="emoji">🩹</div>
-            <div class="title">Cuando te duela<br>el pecho</div>
-        </div>
-
-    </div>
-
-</body>
-</html>
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
